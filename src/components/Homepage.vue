@@ -11,13 +11,9 @@ function search_slimage() {
   this.search_param = document.getElementById('search-box').value;
   axios({
     method: "get",
-    url: "/api/get_slime",
-    params: {
-      search_param: this.search_param
-    }
+    url: "/api/slime_random",
   }).then(function(resp) {
-    console.log(resp.data);
-    //this.does_it_slime = resp.data;
+    does_it_slime.value = resp.data["result"];
   })
   
   return;
