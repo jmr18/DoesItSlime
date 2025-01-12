@@ -8,12 +8,12 @@ const does_it_slime = ref(false);
 
 
 function search_slimage() {
-  this.search_param = document.getElementById('search-box').value;
   axios({
     method: "get",
     url: "/api/slime_random",
   }).then(function(resp) {
     does_it_slime.value = resp.data["result"];
+    search_param.value = document.getElementById('search-box').value;
   })
   
   return;
